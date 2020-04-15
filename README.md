@@ -16,3 +16,11 @@ osa2
   maiden_tiedot
 ```
 Hakemistoon kannattaa sijoittaa koko tehtäväsarjan react-projekti lukuunottamatta riippuvuuksia sisältävää hakemistoa node_modules
+
+Vinkki: Kun olet avaamassa tehtävääsi Visual Studio Codella, huomaathan avata koko projektin kansion editoriin. Tämä mahdollistaa editorissa helpomman tiedostojen välillä siirtymisen ja paremmat automaattiset täydennykset. Saat tämän tehtyä siirtymällä terminaalissa projektin kansioon ja suorittamalla komennon:
+
+``` $ code . ```
+
+VAROITUS create-react-app tekee projektista automaattisesti git-repositorion, ellei sovellusta luoda jo olemassaolevan repositorion sisälle. Todennäköisesti et halua että projektista tulee repositorio, joten suorita projektin juuressa komento
+
+``` rm -rf .git ```
