@@ -1,0 +1,29 @@
+title 0.4 Uusi muistiinpano
+
+Selain->Palvelin: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note body: {note: <new note>}
+
+note over Palvelin:
+Palvelin tallentaa uuden muistiinpanon
+end note
+
+Palvelin -> Selain: Status code 302, Location: /notes
+Selain -> Palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+Palvelin -> Selain: HTML-koodi
+Selain -> Palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+Palvelin -> Selain: main.css
+Selain -> Palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+Palvelin -> Selain: main.js
+
+note over Selain:
+Selain suorittaa main.js
+joka lähettää GET pynnön
+end note
+
+Selain -> Palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+Palvelin -> Selain: [<notes>]
+
+note over Selain:
+Selain suorittaa main.js
+joka renderöi [<notes>]
+-> <ul><notes></ul>
+end note

@@ -1,0 +1,25 @@
+title 0.6: Uusi muistiinpano
+
+note over Selain:
+suorittaa spa.js
+jossa lomakkeen submit
+painikkeen tapahtumankuuntelija:
+1. luo uuden note objektin
+2. lisää sen notes taulukkoon
+3. tyhjentää syöte kentän
+4. renderöi notes uudelleen
+5. kutsuu sendToServer()-funktiota
+
+sendToServer asettaa pyynnön
+headerit ja lähettää uuden
+note objektin palvelimelle
+end note
+
+Selain -> Palvelin: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa body: {content: "new note", date: "current_date"}
+Palvelin -> Selain: Status code 201, {"message":"note created"}
+
+note over Selain:
+suorittaa spa.js
+loggaa vastauksen
+konsoliin
+end note
