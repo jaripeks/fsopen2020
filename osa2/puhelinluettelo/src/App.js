@@ -33,6 +33,7 @@ const App = () => {
                 personService
                     .update(foundPerson.id, changedPerson)
                     .then(returnedPerson => {
+                        console.log(returnedPerson)
                         setPersons(persons.map(p => p.id !== foundPerson.id ? p : returnedPerson))
                         setNewname('')
                         setNewnumber('')
@@ -42,7 +43,10 @@ const App = () => {
                         }, 5000)
                     })
                     .catch(error => {
-                        console.log(error)
+                        setNoteMessage({ className: 'error', message: error.response.data.error })
+                        setTimeout(() => {
+                            setNoteMessage({ className: null, message: null })
+                        }, 5000)
                     })
             }
         } else {
@@ -57,7 +61,12 @@ const App = () => {
                         setNoteMessage({ className: null, message: null })
                     }, 5000)
                 })
-                .catch(error => console.log(error))
+                .catch(error => {
+                    setNoteMessage({ className: 'error', message: error.response.data.error })
+                    setTimeout(() => {
+                        setNoteMessage({ className: null, message: null })
+                    }, 5000)
+                })
         }
     }
 
