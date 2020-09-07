@@ -29,17 +29,17 @@ const Blog = ({ blog, handleLike, deleteBlog }) => {
 
 	const ViewButton = () => {
 		return (
-			<button onClick={toggleDetail}>{detail ? 'hide' : 'view'}</button>
+			<button onClick={toggleDetail} className='detailButton'>{detail ? 'hide' : 'view'}</button>
 		)
 	}
 
 	const Detail = () => {
 		return (
-			<div>
+			<div className='details'>
 				<div>{blog.url}</div>
 				<div>
 					{blog.likes}
-					<button onClick={likeBlog}>like</button>
+					<button onClick={likeBlog} className='likeButton'>like</button>
 				</div>
 				<div>{blog.user.username}</div>
 				<div>
