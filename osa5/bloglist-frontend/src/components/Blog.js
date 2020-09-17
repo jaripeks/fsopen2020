@@ -29,28 +29,28 @@ const Blog = ({ blog, handleLike, deleteBlog }) => {
 
 	const ViewButton = () => {
 		return (
-			<button onClick={toggleDetail} className='detailButton'>{detail ? 'hide' : 'view'}</button>
+			<button id='detailButton' onClick={toggleDetail} className='detailButton'>{detail ? 'hide' : 'view'}</button>
 		)
 	}
 
 	const Detail = () => {
 		return (
-			<div className='details'>
+			<div id='details' className='details'>
 				<div>{blog.url}</div>
-				<div>
+				<div id='likes'>
 					{blog.likes}
-					<button onClick={likeBlog} className='likeButton'>like</button>
+					<button id='likeButton' onClick={likeBlog} className='likeButton'>like</button>
 				</div>
 				<div>{blog.user.username}</div>
 				<div>
-					{deleteBlog === null ? '' : <button onClick={removeBlog}>remove</button>}
+					{deleteBlog === null ? '' : <button id='deleteButton' onClick={removeBlog}>remove</button>}
 				</div>
 			</div>
 		)
 	}
 
 	return (
-		<div style={blogStyle}>
+		<div id='blog' style={blogStyle}>
 			{blog.title} {blog.author} {ViewButton()}
 			{detail ? Detail() : ''}
 		</div>
