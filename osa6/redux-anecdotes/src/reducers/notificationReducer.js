@@ -4,6 +4,8 @@ const style = {
     borderWidth: 1
 }
 
+let timeOutId = undefined
+
 const notificationReducer = (state = {}, action) => {
     switch (action.type) {
         case 'SET_NOTIFICATION':
@@ -17,6 +19,11 @@ const notificationReducer = (state = {}, action) => {
 
 export const setNotification = (message, timeout) => {
     return async dispatch => {
+        // from docs: 'Passing an invalid ID to clearTimeout() silently does nothing; no exception is thrown.'
+        if(timeOutId !== undefined) {
+            clearTimeout(timeOutId)
+        }
+
         dispatch({
             type: 'SET_NOTIFICATION',
             notification: {
@@ -24,7 +31,8 @@ export const setNotification = (message, timeout) => {
                 style
             }
         })
-        setTimeout(() => {
+        
+        timeOutId = setTimeout(() => {
             dispatch({ type: 'CLEAR_NOTIFICATION' })
         }, timeout * 1000);
     }

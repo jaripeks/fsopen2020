@@ -28,11 +28,11 @@
     {
       "content": "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.",
       "id": "98312",
-      "votes": 0
+      "votes": 2
     },
     {
       "content": "creating action creators requires creativity",
-      "votes": 2,
+      "votes": 4,
       "id": "Ip8EbS2"
     },
     {
@@ -42,8 +42,13 @@
     },
     {
       "content": "95 percent of integration development is communicating with people",
-      "votes": 3,
+      "votes": 7,
       "id": "3MC7lA0"
+    },
+    {
+      "content": "Creating test input is the hardest part of any programming task",
+      "votes": 1,
+      "id": "7g7WVs2"
     }
   ]
 }
