@@ -5,7 +5,6 @@ const style = {
 }
 
 const notificationReducer = (state = {}, action) => {
-
     switch (action.type) {
         case 'SET_NOTIFICATION':
             return action.notification
@@ -15,20 +14,22 @@ const notificationReducer = (state = {}, action) => {
     }
 }
 
-export const setNotification = message => {
-    return {
-        type: 'SET_NOTIFICATION',
-        notification: {
-            message,
-            style
-        }
+
+export const setNotification = (message, timeout) => {
+    return async dispatch => {
+        dispatch({
+            type: 'SET_NOTIFICATION',
+            notification: {
+                message,
+                style
+            }
+        })
+        setTimeout(() => {
+            dispatch({ type: 'CLEAR_NOTIFICATION' })
+        }, timeout * 1000);
     }
 }
 
-export const clearNotification = () => {
-    return {
-        type: 'CLEAR_NOTIFICATION',
-    }
-}
+
 
 export default notificationReducer
